@@ -12,7 +12,7 @@ except NameError:
     pass
 
 
-CONFIG_FILENAME = "config.yml"
+CONFIG_FILENAME = "config_custom.yml"
 
 
 class PolarAccessLinkExample(object):

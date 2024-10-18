@@ -11,7 +11,7 @@ from accesslink import AccessLink
 CALLBACK_PORT = 5000
 CALLBACK_ENDPOINT = "/oauth2_callback"
 
-CONFIG_FILENAME = "config.yml"
+CONFIG_FILENAME = "config_custom.yml"
 
 REDIRECT_URL = "http://localhost:{}{}".format(CALLBACK_PORT, CALLBACK_ENDPOINT)
 

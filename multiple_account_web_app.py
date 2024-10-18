@@ -11,13 +11,14 @@ from flask import Flask, request, redirect, render_template
 
 from utils import load_config, save_config
 from accesslink import AccessLink
+import pandas as pd
 
 
 CALLBACK_PORT = 5000
 CALLBACK_ENDPOINT = "/oauth2_callback"
 
 CONFIG_FILENAME = "config_custom.yml"
-TOKEN_FILENAME = "usertokens.yml"
+TOKEN_FILENAME = "multiple_user_tokens.yml"
 
 REDIRECT_URL = "http://localhost:{}{}".format(CALLBACK_PORT, CALLBACK_ENDPOINT)
 
@@ -48,6 +49,12 @@ def data():
                            "sleepdata": sleepdata,
                            "recharge": rechargedata,
                            "userdata": userdata })
+        # Convert the collected data to a DataFrame
+        df = pd.DataFrame(alldata)
+
+        # Save the DataFrame to an Excel file
+        df.to_excel("data.xlsx", index=False)
+
     return render_template("data.html", alldata = alldata)
 
 @app.route(CALLBACK_ENDPOINT)

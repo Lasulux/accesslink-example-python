@@ -22,7 +22,7 @@ You can edit your API client later and modify and/or add new authorization redir
   
 ### 2. Configure client credentials
 
-Fill in your client id and secret in [config.yml] (example below):
+Fill in your client id and secret in [config_custom.yml] (example below):
 
 ```bash
 client_id: 57a715f8-b7e8-11e7-abc4-cec278b6b50a
@@ -78,7 +78,7 @@ python authorization_callback_server.py
 
 When the callback service is running, navigate to `https://flow.polar.com/oauth2/authorization?response_type=code&client_id=<YOUR_CLIENT_ID>` to link the user account and register the user. You should see Polar Flow login window if not logged in already. Otherwise your browser should be redirected to the callback url and the linking should be completed.
 
-After linking has been done you may close [authorization_callback_server.py]. Access token and user id should be automatically saved to [config.yml] and the file should look similar to following:
+After linking has been done you may close [authorization_callback_server.py]. Access token and user id should be automatically saved to [config_custom.yml] and the file should look similar to following:
 
 ```bash
 access_token: YOUR_ACCESS_TOKEN
@@ -115,12 +115,12 @@ Once user has linked their user account to client application and synchronizes d
 If you have any trouble running these example applications check the following.
 
 1) Make sure that you are **using the correct python and pip** if you have multiple Python versions installed.
-2) Make sure that you have **created and configured the API client** with your `client_id` and `client_secret` in the [config.yml] file.
+2) Make sure that you have **created and configured the API client** with your `client_id` and `client_secret` in the [config_custom.yml] file.
 3) Make sure that you have used **correct authorization redirect URL**. You can reconfigure your API client if needed.
 
 [authorization_callback_server.py]: ./authorization_callback_server.py
 
-[config.yml]: ./config.yml
+[config_custom.yml]: ./config_custom.yml
 
 [usertokens.yml]: ./usertokens.yml
 

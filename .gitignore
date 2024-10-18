@@ -2,3 +2,13 @@
 env/
 .vs/
 usertokens.yml
+*.yml
+venv/
+.venv
+.venv/
+__pycache__/
+*.log
+*.log.*
+*.log-*
+*.log-*
+*.log-*
