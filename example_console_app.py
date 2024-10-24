@@ -129,7 +129,7 @@ class PolarAccessLinkExample(object):
         for url in resource_urls:
             activity_summary = transaction.get_activity_summary(url)
 
-            print("Activity summary:")
+            print("Activity summary: ")
             pretty_print_json(activity_summary)
 
         transaction.commit()

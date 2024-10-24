@@ -20,6 +20,7 @@ class DailyActivity(Resource):
         response = self._post(endpoint="/users/{}/activity-transactions".format(user_id),
                               access_token=access_token)
         if not response:
+            print("No new daily activity available.")
             return None
 
         return DailyActivityTransaction(oauth=self.oauth,

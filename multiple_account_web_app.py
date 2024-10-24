@@ -38,17 +38,23 @@ def index():
 def data():
     tokens = token_db()
     alldata = []    
+    i=0
     for item in tokens["tokens"]:
+        print("checking user: ",str(i), item["user_id"])
+        i+=1
         if item == None:
             continue
         exercisedata = accesslink.get_exercises(access_token=item["access_token"])
         sleepdata = accesslink.get_sleep(access_token=item["access_token"])
         rechargedata = accesslink.get_recharge(access_token=item["access_token"])
         userdata = accesslink.get_userdata(user_id=item["user_id"], access_token=item["access_token"])
+        activitydata = accesslink.get_activity(user_id=item["user_id"],access_token=item["access_token"])
         alldata.append( {"exercises": exercisedata,
                            "sleepdata": sleepdata,
                            "recharge": rechargedata,
-                           "userdata": userdata })
+                           "userdata": userdata,
+                           "activitydata": activitydata
+                           })
         # Convert the collected data to a DataFrame
         df = pd.DataFrame(alldata)
 
@@ -132,4 +138,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

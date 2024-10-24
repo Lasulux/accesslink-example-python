@@ -51,4 +51,24 @@ class AccessLink(object):
 
     def get_userdata(self, user_id,access_token):
         return self.oauth.get(endpoint="/users/"+ str(user_id), access_token= access_token)
+    
+    def get_activity(self, user_id,access_token):
+        transaction = self.daily_activity.create_transaction(user_id=user_id,access_token=access_token)
+        
+        if not transaction:
+            print("create_transaction returned empty.")
+            return
+
+        resource_urls = transaction.list_activities()["activity-log"]
+        activity_summaries = []
+
+        i = 0
+        for url in resource_urls:
+            activity_summary = transaction.get_activity_summary(url)
+            activity_summaries.append(activity_summary)
+            print("Activity summary found" + str(i) + ":" + str(url)) 
+            i = i + 1
+
+        transaction.commit()
+        return activity_summaries
 
