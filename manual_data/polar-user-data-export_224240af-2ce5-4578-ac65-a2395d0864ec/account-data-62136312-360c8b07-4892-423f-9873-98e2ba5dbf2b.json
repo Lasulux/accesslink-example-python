@@ -1,0 +1,29 @@
+{
+  "exportVersion": "2.4",
+  "username": "bence.fogel42@gmail.com",
+  "firstName": "Bence",
+  "lastName": "Fogel",
+  "physicalInformation": {
+    "sex": "MALE",
+    "birthday": "2000-11-30",
+    "height, cm": 186.0,
+    "weight, kg": 80.0,
+    "trainingBackground": "HEAVY",
+    "sleepGoal": "PT28800S",
+    "typicalDay": "MOSTLY_SITTING",
+    "speedCalibrationOffset": 0.0
+  },
+  "linkedApplications": [],
+  "linkedOrganisations": [],
+  "settings": {
+    "firstDayOfWeek": "MONDAY",
+    "measurementUnit": "METRIC",
+    "dateFormat": "DAY_MONTH_YEAR",
+    "dateSeparator": "HYPHEN",
+    "timeFormat": "TIMEFORMAT_24",
+    "timeFormatSeparator": "COLON",
+    "timeZone": "UTC",
+    "language": "en",
+    "flowLanguage": "en"
+  }
+}

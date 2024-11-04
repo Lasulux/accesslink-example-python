@@ -1,0 +1,29 @@
+{
+  "exportVersion": "2.4",
+  "username": "balintlassu97@gmail.com",
+  "firstName": "Bálint András",
+  "lastName": "Lassú",
+  "physicalInformation": {
+    "sex": "MALE",
+    "birthday": "1997-10-10",
+    "height, cm": 180.0,
+    "weight, kg": 66.0,
+    "trainingBackground": "REGULAR",
+    "sleepGoal": "PT28800S",
+    "typicalDay": "MOSTLY_SITTING",
+    "speedCalibrationOffset": 0.0
+  },
+  "linkedApplications": [],
+  "linkedOrganisations": [],
+  "settings": {
+    "firstDayOfWeek": "MONDAY",
+    "measurementUnit": "METRIC",
+    "dateFormat": "DAY_MONTH_YEAR",
+    "dateSeparator": "HYPHEN",
+    "timeFormat": "TIMEFORMAT_24",
+    "timeFormatSeparator": "COLON",
+    "timeZone": "UTC",
+    "language": "hu",
+    "flowLanguage": "hu"
+  }
+}

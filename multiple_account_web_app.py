@@ -12,6 +12,7 @@ from flask import Flask, request, redirect, render_template
 from utils import load_config, save_config
 from accesslink import AccessLink
 import pandas as pd
+from typing import Dict, List
 
 
 CALLBACK_PORT = 5000
@@ -44,22 +45,34 @@ def data():
         i+=1
         if item == None:
             continue
-        exercisedata = accesslink.get_exercises(access_token=item["access_token"])
+        # exercisedata = accesslink.get_exercises(access_token=item["access_token"])
+        exercisedata = accesslink.get_exercises(access_token=item["access_token"], data={"samples": True})
         sleepdata = accesslink.get_sleep(access_token=item["access_token"])
         rechargedata = accesslink.get_recharge(access_token=item["access_token"])
         userdata = accesslink.get_userdata(user_id=item["user_id"], access_token=item["access_token"])
-        activitydata = accesslink.get_activity(user_id=item["user_id"],access_token=item["access_token"])
+        # activitydata = accesslink.get_activity(user_id=item["user_id"],access_token=item["access_token"])
         alldata.append( {"exercises": exercisedata,
                            "sleepdata": sleepdata,
                            "recharge": rechargedata,
                            "userdata": userdata,
-                           "activitydata": activitydata
+                        #    "activitydata": activitydata
                            })
-        # Convert the collected data to a DataFrame
-        df = pd.DataFrame(alldata)
+    # Convert the collected data to a DataFrame
+    df = pd.DataFrame(alldata)
+    user_df = add_dict_columns_to_dataframe(df["userdata"],"userdata")
+    # TODO: TTK specific user id somehow used for joins?
+    user_df.to_excel("users_data.xlsx", index=False)
+    exercises_df = add_dict_columns_to_dataframe(df["exercises"],"exercises")
+    exercises_df.to_excel("exercises_data.xlsx", index=False)
 
-        # Save the DataFrame to an Excel file
-        df.to_excel("data.xlsx", index=False)
+    sleep_df = add_dict_columns_to_dataframe(df["sleepdata"],"sleepdata")
+    sleep_df.to_excel("sleep_data.xlsx", index=False)
+
+    # add_dict_columns_to_dataframe(df["sleepdata"][0]["nights"],"sleepdata", df, delete_original=False)
+    # add_dict_columns_to_dataframe(df["recharge"][0]["recharges"],"recharge", df, delete_original=False)
+
+    # Save the DataFrame to an Excel file
+    df.to_excel("data.xlsx", index=False)
 
     return render_template("data.html", alldata = alldata)
 
@@ -110,6 +123,62 @@ def callback():
             return redirect("/?status=duplicatetokens")
 
     return redirect("/?status=ok")  
+
+def add_dict_columns_to_dataframe(dict_list,original_name, df=pd.DataFrame(None), delete_original=False, new_df=True):
+    if new_df:
+        df=pd.DataFrame(None)
+    if not isinstance(dict_list[0],Dict):
+        for user_dict_list in dict_list:
+            inner_df = add_dict_columns_to_dataframe(user_dict_list, original_name, df, delete_original, new_df)
+            df = pd.concat([inner_df, df], ignore_index=True)
+        return df
+    
+    # Get unique keys from all dictionaries
+    all_keys = set(key for mydict in dict_list for key in mydict.keys())
+    # Iterate through each dictionary in the list
+    for mydict in dict_list:
+        # Add new columns for each key in the current dictionary
+        for key in mydict.keys():
+            # Check if the column already exists
+            if isinstance(mydict[key], Dict):
+                for inner_key in mydict[key].keys():
+                    fieldname = f"{key}:_{inner_key}"
+                    if fieldname not in df.columns:
+                        df[fieldname] = [mydict[key].get(inner_key) for _ in range(len(df))]
+                continue
+            if isinstance(mydict[key], List):
+                if bool(mydict[key]) and isinstance(mydict[key][0], Dict):
+                    for inner_key in mydict[key][0].keys():
+                        fieldname = f"{key}:_{inner_key}"
+                        if fieldname not in df.columns:
+                            df[fieldname] = [mydict[key][0].get(inner_key) for _ in range(len(df))]
+                    continue
+            if key not in df.columns:
+                # df[f"{original_name}_{key}"] = [mydict.get(key) for _ in range(len(df))]
+                df[key] = [mydict.get(key) for _ in range(len(df))]
+
+    # for key in all_keys:
+    for key in df.columns:
+        value_list = []
+        for mydict in dict_list:
+            if ':_' in key and bool(mydict[key.split(':_')[0]]):
+                inner_key = key.split(':_')[1]
+                if isinstance(mydict[key.split(':_')[0]], Dict):
+                    value_list.append(mydict.get(key.split(':_')[0]).get(inner_key))
+                    continue
+                if isinstance(mydict[key.split(':_')[0]], List):
+                    for item in mydict[key.split(':_')[0]]:
+                        value_list.append(item.get(inner_key))
+                continue
+            value_list.append(mydict.get(key))
+        df[key] = value_list
+        pass
+    
+    if delete_original:
+        # Delete the original column
+        df.drop(columns=[original_name], inplace=True)
+
+    return df
 
 def remove_oldtokens(array , newuserid):
     res = []

@@ -1,0 +1,472 @@
+[
+  {
+    "night": "2024-10-17",
+    "evaluation": {
+      "sleepType": "SLEEP_PLUS_STAGES",
+      "sleepSpan": "PT7H12M",
+      "asleepDuration": "PT6H38M30S",
+      "age": 27.019178082191782,
+      "analysis": {
+        "efficiencyPercent": 92.24537037037037,
+        "continuityIndex": 2.8,
+        "continuityClass": 2,
+        "feedback": 20
+      },
+      "interruptions": {
+        "totalDuration": "PT33M30S",
+        "totalCount": 28,
+        "shortDuration": "PT20M30S",
+        "shortCount": 24,
+        "longDuration": "PT13M",
+        "longCount": 4
+      },
+      "phaseDurations": {
+        "wake": "PT33M30S",
+        "rem": "PT1H30M30S",
+        "light": "PT4H8M",
+        "deep": "PT1H",
+        "unknown": "PT0S",
+        "remPercentage": 20.949074074074073,
+        "deepPercentage": 13.88888888888889
+      }
+    },
+    "sleepResult": {
+      "hypnogram": {
+        "sleepStart": "2024-10-17T00:08:05.567+02:00",
+        "sleepEnd": "2024-10-17T07:20:05.567+02:00",
+        "alarmSnoozeTimes": [],
+        "sleepStateChanges": [
+          {
+            "offsetFromStart": "PT0S",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT1M",
+            "state": "NONREM3"
+          },
+          {
+            "offsetFromStart": "PT25M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT25M30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT31M30S",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT40M30S",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT41M30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT42M",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT58M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT1H3M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT1H3M30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT1H20M30S",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT1H21M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT1H26M",
+            "state": "NONREM3"
+          },
+          {
+            "offsetFromStart": "PT1H28M30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT1H36M30S",
+            "state": "NONREM3"
+          },
+          {
+            "offsetFromStart": "PT1H37M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT1H43M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT1H44M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT1H57M30S",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT1H58M30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT2H2M",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT2H7M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT2H8M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT2H8M30S",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT2H10M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT2H11M30S",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT2H12M30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT2H14M",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT2H14M30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT2H16M30S",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT2H18M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT2H52M30S",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT2H53M30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT2H55M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT2H56M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT3H6M30S",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT3H7M30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT3H36M",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT3H38M30S",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT3H39M30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT3H40M",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT3H45M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT3H45M30S",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT3H49M30S",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT3H51M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT3H51M30S",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT3H53M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT3H54M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT3H54M30S",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT3H56M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT4H1M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT4H14M30S",
+            "state": "NONREM3"
+          },
+          {
+            "offsetFromStart": "PT4H35M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT4H36M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT4H36M30S",
+            "state": "NONREM3"
+          },
+          {
+            "offsetFromStart": "PT4H39M30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT4H57M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT4H58M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT4H59M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT5H",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT5H7M",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT5H13M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT5H14M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT5H14M30S",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT5H21M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT5H22M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT5H22M30S",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT5H23M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT5H24M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT5H24M30S",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT5H36M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT5H49M",
+            "state": "NONREM3"
+          },
+          {
+            "offsetFromStart": "PT5H50M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT5H50M30S",
+            "state": "NONREM3"
+          },
+          {
+            "offsetFromStart": "PT5H56M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT5H57M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT5H57M30S",
+            "state": "NONREM3"
+          },
+          {
+            "offsetFromStart": "PT6H",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT6H30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT6H1M",
+            "state": "NONREM3"
+          },
+          {
+            "offsetFromStart": "PT6H1M30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT6H19M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT6H19M30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT6H22M30S",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT6H23M30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT6H32M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT6H33M30S",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT6H41M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT6H46M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT6H53M30S",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT6H57M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT6H57M30S",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT7H10M",
+            "state": "WAKE"
+          },
+          {
+            "offsetFromStart": "PT7H11M",
+            "state": "NONREM2"
+          },
+          {
+            "offsetFromStart": "PT7H11M30S",
+            "state": "REM"
+          },
+          {
+            "offsetFromStart": "PT7H12M30S",
+            "state": "WAKE"
+          }
+        ],
+        "sleepStartOffset": 0,
+        "sleepEndOffset": 0,
+        "rating": "UNKNOWN",
+        "birthday": "1997-10-10",
+        "sleepGoal": "PT8H",
+        "deviceId": "DEC9982B",
+        "batteryRanOut": false
+      },
+      "sleepCycles": {
+        "cycles": {
+          "sleepCycleModels": [
+            {
+              "secondsFromSleepStart": 49005,
+              "sleepDepthStart": 0.2189681
+            },
+            {
+              "secondsFromSleepStart": 51615,
+              "sleepDepthStart": 0.98882097
+            },
+            {
+              "secondsFromSleepStart": 56385,
+              "sleepDepthStart": 0.7577534
+            },
+            {
+              "secondsFromSleepStart": 62505,
+              "sleepDepthStart": 0.96534336
+            },
+            {
+              "secondsFromSleepStart": 68115,
+              "sleepDepthStart": 0.9664328
+            },
+            {
+              "secondsFromSleepStart": 74745,
+              "sleepDepthStart": 1.0576459
+            }
+          ]
+        }
+      }
+    }
+  }
+]

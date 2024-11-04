@@ -1,0 +1,950 @@
+[
+  {
+    "night": "2024-10-16",
+    "sleepWake": [
+      {
+        "deviceId": "DEC9982B",
+        "sleepStateChanges": {
+          "sleepWakeStateChangeModels": [
+            {
+              "millisInDay": 37895001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 38255001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 39605001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 40415001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 40505001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 42005001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 42215001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 43325001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 43445001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 43715001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 43805001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 43835001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 44015001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 44375001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 52535001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 53705001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 53915001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 54725001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 54905001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 56135001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 56255001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 58835001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 59015001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 59945001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 61175001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 64895001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 64985001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 65045001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 65765001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 65825001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 65975001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 66005001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 66155001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 66245001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 66335001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 66365001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 66455001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 66605001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 66695001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 66905001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 67805001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 67865001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 67925001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 68015001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 68375001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 68555001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 68705001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 74495001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 74615001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 74915001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 75095001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 75785001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 75875001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 76175001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 76295001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 76415001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 76745001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 78125001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 78725001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 80225001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 80375001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 80465001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 80645001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 81275001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 82025001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 82085001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 82385001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 82415001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 82625001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 82715001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 82835001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 83645001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 83765001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 84185001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 84395001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 84785001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 84905001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 84965001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 86015001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 86075001,
+              "state": "SLEEP"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "night": "2024-10-17",
+    "sleepWake": [
+      {
+        "deviceId": "DEC9982B",
+        "sleepStateChanges": {
+          "sleepWakeStateChangeModels": [
+            {
+              "millisInDay": 5001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 155001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 185001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 305001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 365001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 1955001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 1985001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 2885001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 2945001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 4235001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 4265001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 5285001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 5315001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 6635001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 6695001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 8135001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 8165001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 8345001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 8405001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 10805001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 10865001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 10955001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 11015001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 11645001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 11705001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 13565001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 13625001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 13955001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 13985001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 14225001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 14315001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 14435001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 14495001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 14615001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 14915001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 16955001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 17015001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 18275001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 18455001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 19235001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 19295001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 19715001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 19775001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 19835001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 19895001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 21815001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 21875001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 22055001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 22085001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 23195001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 23225001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 23405001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 23465001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 23975001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 24065001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 24515001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 24815001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 26255001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 26315001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 26405001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 26525001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 26675001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 26975001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 27095001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 27575001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 27665001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 27905001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 28085001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 28295001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 28535001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 28625001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 28745001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 28805001,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 29165001,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 29886271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 30156271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 30186271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 30366271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 30726271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 30816271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 31626271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 31746271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 32136271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 32286271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 32916271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 33036271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 33216271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 33366271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 33576271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 33666271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 33906271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 33966271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 34026271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 34176271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 34386271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 34506271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 35376271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 35676271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 36846271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 36936271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 37206271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 37356271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 37956271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 38016271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 38496271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 43056271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 44316271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 58596271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 58656271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 58896271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 58956271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 59016271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 59226271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 59346271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 59466271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 59556271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 59706271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 59796271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 60006271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 60246271,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 61086271,
+              "state": "SLEEP"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "night": "2024-10-18",
+    "sleepWake": [
+      {
+        "deviceId": "DEC9982B",
+        "sleepStateChanges": {
+          "sleepWakeStateChangeModels": [
+            {
+              "millisInDay": 6271,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 29523643,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 29883643,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 60393643,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 60423643,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 60513643,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 60573643,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 60903643,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 60933643,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 61053643,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 61113643,
+              "state": "SLEEP"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "night": "2024-10-19",
+    "sleepWake": [
+      {
+        "deviceId": "DEC9982B",
+        "sleepStateChanges": {
+          "sleepWakeStateChangeModels": [
+            {
+              "millisInDay": 3643,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 29523643,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 29883643,
+              "state": "SLEEP"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "night": "2024-10-20",
+    "sleepWake": [
+      {
+        "deviceId": "DEC9982B",
+        "sleepStateChanges": {
+          "sleepWakeStateChangeModels": [
+            {
+              "millisInDay": 3643,
+              "state": "SLEEP"
+            },
+            {
+              "millisInDay": 29523643,
+              "state": "WAKE"
+            },
+            {
+              "millisInDay": 29883643,
+              "state": "SLEEP"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "night": "2024-10-21",
+    "sleepWake": [
+      {
+        "deviceId": "DEC9982B",
+        "sleepStateChanges": {
+          "sleepWakeStateChangeModels": [
+            {
+              "millisInDay": 3643,
+              "state": "SLEEP"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

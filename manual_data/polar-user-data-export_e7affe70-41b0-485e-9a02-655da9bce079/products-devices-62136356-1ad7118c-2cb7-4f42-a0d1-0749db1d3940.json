@@ -1,0 +1,32 @@
+{
+  "exportVersion": "2.4",
+  "devices": [
+    {
+      "name": "Polar Pacer",
+      "deviceId": "DEC9982B",
+      "deviceUuid": "0e030000-0084-0000-0000-0000dec9982b",
+      "registered": "2024-10-16",
+      "settings": [
+        {
+          "name": "handedness",
+          "value": "1"
+        },
+        {
+          "name": "language",
+          "value": "en"
+        }
+      ]
+    }
+  ],
+  "archivedDevices": [],
+  "productRegistrationEvents": [
+    {
+      "userId": "62136356",
+      "created": "2024-10-16T08:22:41.941Z",
+      "eventType": "ADD",
+      "deviceUuid": "0e030000-0084-0000-0000-0000dec9982b",
+      "manufacturerName": "Polar Electro Oy",
+      "modelName": "Polar_INW5A"
+    }
+  ]
+}

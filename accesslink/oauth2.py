@@ -95,10 +95,26 @@ class OAuth2Client(object):
             kwargs["auth"] = HTTPBasicAuth(self.client_id, self.client_secret)
 
         return kwargs
+    
+    def __build_data_kwargs(self, **kwargs):
+        """Setup data for requests
+
+        If `data` is given, it is used as the request body.
+        """
+
+        if "data" in kwargs:
+            if "headers" not in kwargs:
+                kwargs["headers"] = {"Content-Type": "application/json"}
+
+            kwargs["data"] = kwargs["data"]
+            # del kwargs["data"]
+
+        return kwargs
 
     def __build_request_kwargs(self, **kwargs):
         kwargs = self.__build_endpoint_kwargs(**kwargs)
         kwargs = self.__build_auth_kwargs(**kwargs)
+        kwargs = self.__build_data_kwargs(**kwargs)
         return kwargs
 
     def __parse_response(self, response):

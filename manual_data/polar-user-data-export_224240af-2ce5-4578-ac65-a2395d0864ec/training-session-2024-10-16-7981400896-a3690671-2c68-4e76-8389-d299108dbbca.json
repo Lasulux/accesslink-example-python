@@ -1,0 +1,519 @@
+{
+  "exportVersion": "2.4",
+  "name": "",
+  "deviceId": "DECADB2B",
+  "startTime": "2024-10-16T11:32:30.811",
+  "stopTime": "2024-10-16T11:33:06.469",
+  "timeZoneOffset": 120,
+  "duration": "PT30.030S",
+  "maximumHeartRate": 63,
+  "averageHeartRate": 61,
+  "kiloCalories": 1,
+  "physicalInformationSnapshot": {
+    "dateTime": "2024-10-16T09:33:40.000",
+    "sex": "MALE",
+    "birthday": "2000-11-30",
+    "height, cm": 186.0,
+    "weight, kg": 80.0,
+    "vo2Max": 56,
+    "maximumHeartRate": 197,
+    "restingHeartRate": 55,
+    "aerobicThreshold": 148,
+    "anaerobicThreshold": 177,
+    "sleepGoal": "PT28800S",
+    "functionalThresholdPower": 285
+  },
+  "exercises": [
+    {
+      "startTime": "2024-10-16T11:32:30.821",
+      "stopTime": "2024-10-16T11:33:00.851",
+      "timezoneOffset": 120,
+      "duration": "PT30.030S",
+      "sport": "OTHER_INDOOR",
+      "kiloCalories": 1,
+      "heartRate": {
+        "min": 59,
+        "avg": 61,
+        "max": 63
+      },
+      "zones": {
+        "heart_rate": [
+          {
+            "lowerLimit": 99,
+            "higherLimit": 118,
+            "inZone": "PT0S",
+            "zoneIndex": 1
+          },
+          {
+            "lowerLimit": 118,
+            "higherLimit": 138,
+            "inZone": "PT0S",
+            "zoneIndex": 2
+          },
+          {
+            "lowerLimit": 138,
+            "higherLimit": 158,
+            "inZone": "PT0S",
+            "zoneIndex": 3
+          },
+          {
+            "lowerLimit": 158,
+            "higherLimit": 177,
+            "inZone": "PT0S",
+            "zoneIndex": 4
+          },
+          {
+            "lowerLimit": 177,
+            "higherLimit": 197,
+            "inZone": "PT0S",
+            "zoneIndex": 5
+          }
+        ]
+      },
+      "samples": {
+        "heartRate": [
+          {
+            "dateTime": "2024-10-16T11:32:30.821",
+            "value": 63
+          },
+          {
+            "dateTime": "2024-10-16T11:32:31.821",
+            "value": 63
+          },
+          {
+            "dateTime": "2024-10-16T11:32:32.821",
+            "value": 63
+          },
+          {
+            "dateTime": "2024-10-16T11:32:33.821",
+            "value": 63
+          },
+          {
+            "dateTime": "2024-10-16T11:32:34.821",
+            "value": 63
+          },
+          {
+            "dateTime": "2024-10-16T11:32:35.821",
+            "value": 63
+          },
+          {
+            "dateTime": "2024-10-16T11:32:36.821",
+            "value": 63
+          },
+          {
+            "dateTime": "2024-10-16T11:32:37.821",
+            "value": 62
+          },
+          {
+            "dateTime": "2024-10-16T11:32:38.821",
+            "value": 62
+          },
+          {
+            "dateTime": "2024-10-16T11:32:39.821",
+            "value": 61
+          },
+          {
+            "dateTime": "2024-10-16T11:32:40.821",
+            "value": 61
+          },
+          {
+            "dateTime": "2024-10-16T11:32:41.821",
+            "value": 60
+          },
+          {
+            "dateTime": "2024-10-16T11:32:42.821",
+            "value": 60
+          },
+          {
+            "dateTime": "2024-10-16T11:32:43.821",
+            "value": 60
+          },
+          {
+            "dateTime": "2024-10-16T11:32:44.821",
+            "value": 60
+          },
+          {
+            "dateTime": "2024-10-16T11:32:45.821",
+            "value": 60
+          },
+          {
+            "dateTime": "2024-10-16T11:32:46.821",
+            "value": 61
+          },
+          {
+            "dateTime": "2024-10-16T11:32:47.821",
+            "value": 61
+          },
+          {
+            "dateTime": "2024-10-16T11:32:48.821",
+            "value": 61
+          },
+          {
+            "dateTime": "2024-10-16T11:32:49.821",
+            "value": 61
+          },
+          {
+            "dateTime": "2024-10-16T11:32:50.821",
+            "value": 61
+          },
+          {
+            "dateTime": "2024-10-16T11:32:51.821",
+            "value": 61
+          },
+          {
+            "dateTime": "2024-10-16T11:32:52.821",
+            "value": 60
+          },
+          {
+            "dateTime": "2024-10-16T11:32:53.821",
+            "value": 60
+          },
+          {
+            "dateTime": "2024-10-16T11:32:54.821",
+            "value": 59
+          },
+          {
+            "dateTime": "2024-10-16T11:32:55.821",
+            "value": 59
+          },
+          {
+            "dateTime": "2024-10-16T11:32:56.821",
+            "value": 59
+          },
+          {
+            "dateTime": "2024-10-16T11:32:57.821",
+            "value": 59
+          },
+          {
+            "dateTime": "2024-10-16T11:32:58.821",
+            "value": 59
+          },
+          {
+            "dateTime": "2024-10-16T11:32:59.821",
+            "value": 59
+          },
+          {
+            "dateTime": "2024-10-16T11:33:00.821",
+            "value": 59
+          }
+        ],
+        "speed": [
+          {
+            "dateTime": "2024-10-16T11:32:30.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:31.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:32.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:33.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:34.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:35.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:36.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:37.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:38.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:39.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:40.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:41.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:42.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:43.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:44.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:45.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:46.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:47.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:48.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:49.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:50.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:51.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:52.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:53.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:54.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:55.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:56.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:57.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:58.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:59.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:33:00.821"
+          }
+        ],
+        "distance": [
+          {
+            "dateTime": "2024-10-16T11:32:30.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:31.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:32.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:33.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:34.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:35.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:36.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:37.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:38.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:39.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:40.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:41.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:42.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:43.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:44.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:45.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:46.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:47.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:48.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:49.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:50.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:51.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:52.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:53.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:54.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:55.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:56.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:57.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:58.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:59.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:33:00.821"
+          }
+        ],
+        "temperature": [
+          {
+            "dateTime": "2024-10-16T11:32:30.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:31.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:32.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:33.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:34.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:35.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:36.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:37.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:38.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:39.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:40.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:41.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:42.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:43.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:44.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:45.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:46.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:47.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:48.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:49.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:50.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:51.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:52.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:53.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:54.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:55.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:56.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:57.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:58.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:32:59.821"
+          },
+          {
+            "dateTime": "2024-10-16T11:33:00.821"
+          }
+        ]
+      },
+      "loadInformation": {
+        "cardioLoad": 0.0143825,
+        "muscleLoad": -1.0,
+        "cardioLoadInterpretation": "NOT_AVAILABLE",
+        "muscleLoadInterpretation": "NOT_AVAILABLE",
+        "calculationTime": "2024-10-16T11:32:30.000",
+        "sessionRpe": "UNKNOWN",
+        "perceivedLoad": 0.0,
+        "perceivedLoadInterpretation": "NOT_AVAILABLE"
+      }
+    }
+  ],
+  "periodData": {
+    "type": "TRAINING_SESSION",
+    "start": "2024-10-16T11:32:30.811",
+    "end": "2024-10-16T11:33:06.257",
+    "attributes": [
+      {
+        "key": "READONLY_IS_TEST",
+        "textValue": "false"
+      }
+    ]
+  },
+  "loadInformation": {
+    "cardioLoad": 0.0143825,
+    "muscleLoad": -1.0,
+    "cardioLoadInterpretation": "NOT_AVAILABLE",
+    "muscleLoadInterpretation": "NOT_AVAILABLE",
+    "calculationTime": "2024-10-16T11:32:30.000",
+    "sessionRpe": "UNKNOWN",
+    "perceivedLoad": 0.0,
+    "perceivedLoadInterpretation": "NOT_AVAILABLE"
+  }
+}

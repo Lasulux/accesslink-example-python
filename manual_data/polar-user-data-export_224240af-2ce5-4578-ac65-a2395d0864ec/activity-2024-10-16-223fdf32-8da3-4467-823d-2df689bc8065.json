@@ -1,0 +1,1033 @@
+{
+  "exportVersion": "2.4",
+  "date": "2024-10-16",
+  "summary": {
+    "startTime": "10:05:00.000",
+    "endTime": "11:27:00.000",
+    "stepCount": 58,
+    "stepsDistance": 28.851581573486328,
+    "calories": 860,
+    "sleepQuality": 0.0,
+    "sleepDuration": "PT0S",
+    "inactivityAlertCount": 0,
+    "dailyMetMinutes": 0.4499999999999995,
+    "activityLevels": [
+      {
+        "level": "NO_DATA",
+        "duration": "PT0S"
+      },
+      {
+        "level": "SLEEP",
+        "duration": "PT60S"
+      },
+      {
+        "level": "SEDENTARY",
+        "duration": "PT3240S"
+      },
+      {
+        "level": "LIGHT",
+        "duration": "PT690S"
+      },
+      {
+        "level": "CONTINUOS_MODERATE",
+        "duration": "PT0S"
+      },
+      {
+        "level": "INTERMITTENT_MODERATE",
+        "duration": "PT0S"
+      },
+      {
+        "level": "CONTINUOS_VIGOROUS",
+        "duration": "PT0S"
+      },
+      {
+        "level": "INTERMITTENT_VIGOROUS",
+        "duration": "PT0S"
+      },
+      {
+        "level": "NON_WEAR",
+        "duration": "PT930S"
+      }
+    ]
+  },
+  "samples": {
+    "mets": [
+      {
+        "localTime": "10:05:00.000",
+        "value": 0.875
+      },
+      {
+        "localTime": "10:05:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:06:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:06:30.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "10:07:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:07:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:08:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:08:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:09:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:09:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:10:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:10:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:11:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:11:30.000",
+        "value": 0.875
+      },
+      {
+        "localTime": "10:12:00.000",
+        "value": 0.875
+      },
+      {
+        "localTime": "10:12:30.000",
+        "value": 0.875
+      },
+      {
+        "localTime": "10:13:00.000",
+        "value": 1.625
+      },
+      {
+        "localTime": "10:13:30.000",
+        "value": 2.5
+      },
+      {
+        "localTime": "10:14:00.000",
+        "value": 1.875
+      },
+      {
+        "localTime": "10:14:30.000",
+        "value": 1.625
+      },
+      {
+        "localTime": "10:15:00.000",
+        "value": 1.75
+      },
+      {
+        "localTime": "10:15:30.000",
+        "value": 1.625
+      },
+      {
+        "localTime": "10:16:00.000",
+        "value": 1.625
+      },
+      {
+        "localTime": "10:16:30.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "10:17:00.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "10:17:30.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "10:18:00.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "10:18:30.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "10:19:00.000",
+        "value": 0.875
+      },
+      {
+        "localTime": "10:19:30.000",
+        "value": 1.75
+      },
+      {
+        "localTime": "10:20:00.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "10:20:30.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:21:00.000",
+        "value": 2.375
+      },
+      {
+        "localTime": "10:21:30.000",
+        "value": 1.875
+      },
+      {
+        "localTime": "10:22:00.000",
+        "value": 1.875
+      },
+      {
+        "localTime": "10:22:30.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:23:00.000",
+        "value": 2.0
+      },
+      {
+        "localTime": "10:23:30.000",
+        "value": 1.75
+      },
+      {
+        "localTime": "10:24:00.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "10:24:30.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:25:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:25:30.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "10:26:00.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:26:30.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:27:00.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:27:30.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "10:28:00.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:28:30.000",
+        "value": 1.875
+      },
+      {
+        "localTime": "10:29:00.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "10:29:30.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:30:00.000",
+        "value": 2.0
+      },
+      {
+        "localTime": "10:30:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:31:00.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "10:31:30.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "10:32:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:32:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:33:00.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "10:33:30.000",
+        "value": 1.75
+      },
+      {
+        "localTime": "10:34:00.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:34:30.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "10:35:00.000",
+        "value": 1.625
+      },
+      {
+        "localTime": "10:35:30.000",
+        "value": 1.75
+      },
+      {
+        "localTime": "10:36:00.000",
+        "value": 1.875
+      },
+      {
+        "localTime": "10:36:30.000",
+        "value": 1.625
+      },
+      {
+        "localTime": "10:37:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:37:30.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "10:38:00.000",
+        "value": 1.625
+      },
+      {
+        "localTime": "10:38:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:39:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:39:30.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:40:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:40:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:41:00.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "10:41:30.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:42:00.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:42:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:43:00.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:43:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:44:00.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "10:44:30.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:45:00.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "10:45:30.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "10:46:00.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "10:46:30.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "10:47:00.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "10:47:30.000",
+        "value": 1.75
+      },
+      {
+        "localTime": "10:48:00.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "10:48:30.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:49:00.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "10:49:30.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "10:50:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:50:30.000",
+        "value": 1.625
+      },
+      {
+        "localTime": "10:51:00.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:51:30.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "10:52:00.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "10:52:30.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "10:53:00.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "10:53:30.000",
+        "value": 1.875
+      },
+      {
+        "localTime": "10:54:00.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "10:54:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:55:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:55:30.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "10:56:00.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:56:30.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:57:00.000",
+        "value": 1.75
+      },
+      {
+        "localTime": "10:57:30.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "10:58:00.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "10:58:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "10:59:00.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "10:59:30.000",
+        "value": 1.625
+      },
+      {
+        "localTime": "11:00:00.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "11:00:30.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "11:01:00.000",
+        "value": 1.625
+      },
+      {
+        "localTime": "11:01:30.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "11:02:00.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "11:02:30.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "11:03:00.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "11:03:30.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "11:04:00.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "11:04:30.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "11:05:00.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "11:05:30.000",
+        "value": 1.75
+      },
+      {
+        "localTime": "11:06:00.000",
+        "value": 2.125
+      },
+      {
+        "localTime": "11:06:30.000",
+        "value": 2.5
+      },
+      {
+        "localTime": "11:07:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "11:07:30.000",
+        "value": 1.625
+      },
+      {
+        "localTime": "11:08:00.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "11:08:30.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "11:09:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "11:09:30.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "11:10:00.000",
+        "value": 1.875
+      },
+      {
+        "localTime": "11:10:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "11:11:00.000",
+        "value": 1.75
+      },
+      {
+        "localTime": "11:11:30.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "11:12:00.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "11:12:30.000",
+        "value": 1.75
+      },
+      {
+        "localTime": "11:13:00.000",
+        "value": 1.625
+      },
+      {
+        "localTime": "11:13:30.000",
+        "value": 2.125
+      },
+      {
+        "localTime": "11:14:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "11:14:30.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "11:15:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "11:15:30.000",
+        "value": 1.875
+      },
+      {
+        "localTime": "11:16:00.000",
+        "value": 2.125
+      },
+      {
+        "localTime": "11:16:30.000",
+        "value": 1.875
+      },
+      {
+        "localTime": "11:17:00.000",
+        "value": 1.75
+      },
+      {
+        "localTime": "11:17:30.000",
+        "value": 1.75
+      },
+      {
+        "localTime": "11:18:00.000",
+        "value": 2.125
+      },
+      {
+        "localTime": "11:18:30.000",
+        "value": 1.25
+      },
+      {
+        "localTime": "11:19:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "11:19:30.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "11:20:00.000",
+        "value": 1.125
+      },
+      {
+        "localTime": "11:20:30.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "11:21:00.000",
+        "value": 1.5
+      },
+      {
+        "localTime": "11:21:30.000",
+        "value": 2.125
+      },
+      {
+        "localTime": "11:22:00.000",
+        "value": 1.875
+      },
+      {
+        "localTime": "11:22:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "11:23:00.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "11:23:30.000",
+        "value": 1.0
+      },
+      {
+        "localTime": "11:24:00.000",
+        "value": 1.375
+      },
+      {
+        "localTime": "11:24:30.000",
+        "value": 1.625
+      },
+      {
+        "localTime": "11:25:00.000",
+        "value": 1.625
+      }
+    ],
+    "steps": [
+      {
+        "localTime": "10:05:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:06:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:07:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:08:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:09:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:10:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:11:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:12:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:13:00.000",
+        "value": 20
+      },
+      {
+        "localTime": "10:14:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:15:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:16:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:17:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:18:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:19:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:20:00.000",
+        "value": 4
+      },
+      {
+        "localTime": "10:21:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:22:00.000",
+        "value": 2
+      },
+      {
+        "localTime": "10:23:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:24:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:25:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:26:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:27:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:28:00.000",
+        "value": 2
+      },
+      {
+        "localTime": "10:29:00.000",
+        "value": 2
+      },
+      {
+        "localTime": "10:30:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:31:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:32:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:33:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:34:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:35:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:36:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:37:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:38:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:39:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:40:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:41:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:42:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:43:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:44:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:45:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:46:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:47:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:48:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:49:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:50:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:51:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:52:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:53:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:54:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:55:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:56:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:57:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:58:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "10:59:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:00:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:01:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:02:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:03:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:04:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:05:00.000",
+        "value": 6
+      },
+      {
+        "localTime": "11:06:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:07:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:08:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:09:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:10:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:11:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:12:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:13:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:14:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:15:00.000",
+        "value": 12
+      },
+      {
+        "localTime": "11:16:00.000",
+        "value": 4
+      },
+      {
+        "localTime": "11:17:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:18:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:19:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:20:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:21:00.000",
+        "value": 2
+      },
+      {
+        "localTime": "11:22:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:23:00.000",
+        "value": 0
+      },
+      {
+        "localTime": "11:24:00.000",
+        "value": 4
+      }
+    ],
+    "metSources": [
+      "DECADB2B"
+    ]
+  },
+  "physicalInformation": {
+    "sex": "MALE",
+    "birthday": "2000-11-30",
+    "height, cm": 186.0,
+    "weight, kg": 80.0,
+    "sleepGoal": "PT28800S"
+  }
+}

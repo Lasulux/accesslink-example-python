@@ -1,0 +1,22 @@
+[
+  {
+    "night": "2024-10-17",
+    "sleepScoreResult": {
+      "sleepScore": 71.3544,
+      "sleepTimeOwnTargetScore": 68.0,
+      "sleepTimeRecommendationScore": 76.0,
+      "continuityScore": 66.0,
+      "efficiencyScore": 61.6358,
+      "remScore": 85.4167,
+      "n3Score": 81.4286,
+      "longInterruptionsScore": 61.0,
+      "groupDurationScore": 72.0,
+      "groupSolidityScore": 62.8786,
+      "groupRefreshScore": 83.4226
+    },
+    "sleepScoreBaselines": {
+      "sleepTimeAverageMinutes": 0,
+      "longInterruptionsAverageTimeMinutes": 0
+    }
+  }
+]
