@@ -12,3 +12,9 @@ __pycache__/
 *.log-*
 *.log-*
 *.log-*
+*.xlsx
+*.xls
+*.csv
+*.json
+*.txt
+*.zip
