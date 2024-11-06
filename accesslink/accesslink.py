@@ -2,6 +2,7 @@
 
 from . import endpoints
 from .oauth2 import OAuth2Client
+import pandas as pd
 
 AUTHORIZATION_URL = "https://flow.polar.com/oauth2/authorization"
 ACCESS_TOKEN_URL = "https://polarremote.com/v2/oauth2/token"
@@ -52,6 +53,19 @@ class AccessLink(object):
     def get_userdata(self, user_id,access_token):
         return self.oauth.get(endpoint="/users/"+ str(user_id), access_token= access_token)
     
+    def get_continuous_heart_rate(self, user_id,access_token,date_list):
+        try:
+            response = self.oauth.get(endpoint="/users/continuous-heart-rate/2024-11-06"  , access_token= access_token)
+            
+            if response:
+                return response
+            else:
+                print("No continuous-heart-rate available for the given date range")
+                return None
+        except Exception as e:
+            print("Error in get_continuous_heart_rate: " + str(e))
+            return None
+        
     def get_activity(self, user_id,access_token):
         transaction = self.daily_activity.create_transaction(user_id=user_id,access_token=access_token)
         
@@ -61,14 +75,17 @@ class AccessLink(object):
 
         resource_urls = transaction.list_activities()["activity-log"]
         activity_summaries = []
+        step_sampless = []
 
         i = 0
         for url in resource_urls:
             activity_summary = transaction.get_activity_summary(url)
             activity_summaries.append(activity_summary)
+            step_samples = transaction.get_step_samples(url)
+            step_sampless.append(step_samples)
             print("Activity summary found" + str(i) + ":" + str(url)) 
             i = i + 1
 
-        transaction.commit()
+        # transaction.commit()
         return activity_summaries
 
