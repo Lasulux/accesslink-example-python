@@ -14,7 +14,6 @@ from accesslink import AccessLink
 import pandas as pd
 from typing import Dict, List
 
-
 CALLBACK_PORT = 5000
 CALLBACK_ENDPOINT = "/oauth2_callback"
 
@@ -22,6 +21,8 @@ CONFIG_FILENAME = "config_custom.yml"
 TOKEN_FILENAME = "multiple_user_tokens.yml"
 
 REDIRECT_URL = "http://localhost:{}{}".format(CALLBACK_PORT, CALLBACK_ENDPOINT)
+
+KEY_BLACKLIST = ["nights", "x_user_id", "access_token"]
 
 config = load_config(CONFIG_FILENAME)
 
@@ -67,9 +68,6 @@ def data():
 
     sleep_df = add_dict_columns_to_dataframe(df["sleepdata"],"sleepdata")
     sleep_df.to_excel("sleep_data.xlsx", index=False)
-
-    # add_dict_columns_to_dataframe(df["sleepdata"][0]["nights"],"sleepdata", df, delete_original=False)
-    # add_dict_columns_to_dataframe(df["recharge"][0]["recharges"],"recharge", df, delete_original=False)
 
     # Save the DataFrame to an Excel file
     df.to_excel("data.xlsx", index=False)
@@ -153,7 +151,7 @@ def add_dict_columns_to_dataframe(dict_list,original_name, df=pd.DataFrame(None)
                         if fieldname not in df.columns:
                             df[fieldname] = [mydict[key][0].get(inner_key) for _ in range(len(df))]
                     continue
-            if key not in df.columns:
+            if key not in df.columns and key not in KEY_BLACKLIST:
                 # df[f"{original_name}_{key}"] = [mydict.get(key) for _ in range(len(df))]
                 df[key] = [mydict.get(key) for _ in range(len(df))]
 
