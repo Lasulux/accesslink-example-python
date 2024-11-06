@@ -22,7 +22,7 @@ TOKEN_FILENAME = "multiple_user_tokens.yml"
 
 REDIRECT_URL = "http://localhost:{}{}".format(CALLBACK_PORT, CALLBACK_ENDPOINT)
 
-KEY_BLACKLIST = ["nights", "x_user_id", "access_token"]
+KEY_BLACKLIST = ["nights", "access_token"]
 
 config = load_config(CONFIG_FILENAME)
 
