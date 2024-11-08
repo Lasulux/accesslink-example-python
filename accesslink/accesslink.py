@@ -97,17 +97,17 @@ class AccessLink(object):
 
         resource_urls = transaction.list_activities()["activity-log"]
         activity_summaries = []
-        step_sampless = []
+        steptimeseries = []
 
         i = 0
         for url in resource_urls:
             activity_summary = transaction.get_activity_summary(url)
             activity_summaries.append(activity_summary)
             step_samples = transaction.get_step_samples(url)
-            step_sampless.append(step_samples)
+            steptimeseries.append(step_samples)
             print("Activity summary found" + str(i) + ":" + str(url)) 
             i = i + 1
 
         # transaction.commit()
-        return activity_summaries
+        return activity_summaries, steptimeseries
 
