@@ -53,12 +53,14 @@ def data():
         userdata = accesslink.get_userdata(user_id=item["user_id"], access_token=item["access_token"])
         activitydata = accesslink.get_activity(user_id=item["user_id"],access_token=item["access_token"])
         coninous_heart_rate = accesslink.get_continuous_heart_rate(user_id=item["user_id"],access_token=item["access_token"],date_list=["2024-11-05","2024-11-06"])
+        exercise_heart_rate = accesslink.get_exercise_heart_rate(user_id=item["user_id"],access_token=item["access_token"],date_list=["2024-11-05","2024-11-06"])
         alldata.append( {"exercises": exercisedata,
                            "sleepdata": sleepdata,
                            "recharge": rechargedata,
                            "userdata": userdata,
                            "activitydata": activitydata,
-                           "coninous_heart_rate": coninous_heart_rate
+                           "coninous_heart_rate": coninous_heart_rate,
+                           "exercise_heart_rate": exercise_heart_rate
                            })
     # Convert the collected data to a DataFrame
     df = pd.DataFrame(alldata)

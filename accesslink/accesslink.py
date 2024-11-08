@@ -55,17 +55,39 @@ class AccessLink(object):
     
     def get_continuous_heart_rate(self, user_id,access_token,date_list):
         try:
-            response = self.oauth.get(endpoint="/users/continuous-heart-rate/2024-11-06"  , access_token= access_token)
-            
-            if response:
-                return response
-            else:
-                print("No continuous-heart-rate available for the given date range")
+            trainingdatatransaction = self.training_data.create_transaction(user_id=user_id,access_token=access_token)
+            if not trainingdatatransaction:
+                print("create_transaction returned empty.")
                 return None
+            resource_urls = trainingdatatransaction.list_exercises()["exercises"]
+            heartrate_samples = []
+            i = 0
+            for url in resource_urls:
+                exercise_heart_rate_sample = trainingdatatransaction.get_samples(url + "/samples/0")
+                heartrate_samples.append(exercise_heart_rate_sample)
+                exercise_id = url.split("/")[-1]
+                exercise_heart_rate_sample["user_id"] = user_id
+                exercise_heart_rate_sample["exercise_id"] = exercise_id
+                print("Exercise found " + str(i) + " : " + str(url)) 
+                i = i + 1
+            return heartrate_samples
         except Exception as e:
             print("Error in get_continuous_heart_rate: " + str(e))
             return None
         
+    def get_exercise_heart_rate(self, user_id,access_token,date_list):
+        try:
+            response = self.oauth.get(endpoint=""  , access_token= access_token)
+            
+            if response:
+                return response
+            else:
+                print("No exercise-heart-rate available for the given date range")
+                return None
+        except Exception as e:
+            print("Error in get_exercise_heart_rate: " + str(e))
+            return None
+
     def get_activity(self, user_id,access_token):
         transaction = self.daily_activity.create_transaction(user_id=user_id,access_token=access_token)
         
