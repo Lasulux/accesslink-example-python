@@ -53,7 +53,7 @@ class AccessLink(object):
     def get_userdata(self, user_id,access_token):
         return self.oauth.get(endpoint="/users/"+ str(user_id), access_token= access_token)
     
-    def get_continuous_heart_rate(self, user_id,access_token,date_list):
+    def get_exercise_heart_rate(self, user_id,access_token):
         try:
             trainingdatatransaction = self.training_data.create_transaction(user_id=user_id,access_token=access_token)
             if not trainingdatatransaction:
@@ -72,20 +72,23 @@ class AccessLink(object):
                 i = i + 1
             return heartrate_samples
         except Exception as e:
-            print("Error in get_continuous_heart_rate: " + str(e))
+            print("Error in get_exercise_heart_rate: " + str(e))
             return None
         
-    def get_exercise_heart_rate(self, user_id,access_token,date_list):
+        
+    def get_continuous_heart_rate(self, user_id,access_token,date_list):
+        # TODO: iterate trhough dates, handle exceptions (no data for that day)
         try:
-            response = self.oauth.get(endpoint=""  , access_token= access_token)
+            response = self.oauth.get(endpoint="/users/continuous-heart-rate/2024-11-06"  , access_token= access_token)
             
             if response:
+                # TODO: user id adding? parse results
                 return response
             else:
-                print("No exercise-heart-rate available for the given date range")
+                print("No continuous-heart-rate available for the given date range")
                 return None
         except Exception as e:
-            print("Error in get_exercise_heart_rate: " + str(e))
+            print("Error in get_continuous_heart_rate: " + str(e))
             return None
 
     def get_activity(self, user_id,access_token):
@@ -93,7 +96,7 @@ class AccessLink(object):
         
         if not transaction:
             print("create_transaction returned empty.")
-            return
+            return None,None
 
         resource_urls = transaction.list_activities()["activity-log"]
         activity_summaries = []
@@ -104,6 +107,8 @@ class AccessLink(object):
             activity_summary = transaction.get_activity_summary(url)
             activity_summaries.append(activity_summary)
             step_samples = transaction.get_step_samples(url)
+            step_samples["user_id"] = user_id
+            step_samples["activity_id"] = url.split("/")[-1]
             steptimeseries.append(step_samples)
             print("Activity summary found" + str(i) + ":" + str(url)) 
             i = i + 1
