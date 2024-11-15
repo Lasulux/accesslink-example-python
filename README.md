@@ -1,3 +1,27 @@
+# Saját megjegyzések:
+
+A webapp működéséhez szükség van még két yml file-ra:
+
+config.yml: Tartalmazza a client ID és client secret-t. Ezeket a Polar honlapján kell lekérni.
+példa formátum:
+"
+access_token: abc123acb123
+client_id: abc123acb123-abc123acb123-abc123acb123-abc123acb123-abc123acb123
+client_secret: abc123acb123-abc123acb123-4155-abc123acb123-abc123acb123
+user_id: 123123
+"
+
+usertokens.yml: tartalmazza az adott user-id és hozzá tartozó access token-eket. Ezektől a regisztrált felhasználóktól fogunk tudni adatokat lekérni.
+példa formátum:
+"
+tokens:
+- access_token: abc123acb123
+  user_id: 123123
+- access_token: abc123acb123
+  user_id: 123123
+"
+
+# Eredeti Polar API readme:
 # Polar Open AccessLink example applications
 
 Here you can find simple Python example applications that use the [Polar Open AccessLink] API. With the [Polar Open AccessLink] you can access different data recorded with Polar devices.

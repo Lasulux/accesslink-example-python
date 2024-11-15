@@ -46,7 +46,6 @@ def data():
         i+=1
         if item == None:
             continue
-        # exercisedata = accesslink.get_exercises(access_token=item["access_token"])
         exercisedata = accesslink.get_exercises(access_token=item["access_token"], data={"samples": True})
         sleepdata = accesslink.get_sleep(access_token=item["access_token"])
         rechargedata = accesslink.get_recharge(access_token=item["access_token"])

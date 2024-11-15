@@ -36,7 +36,6 @@ class AccessLink(object):
 
     def get_access_token(self, authorization_code):
         """Request access token for a user.
-
         :param authorization_code: authorization code received from authorization endpoint.
         """
         return self.oauth.get_access_token(authorization_code)

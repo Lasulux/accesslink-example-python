@@ -13,8 +13,7 @@ class Transaction(Resource):
 
     def commit(self):
         """Commit the transaction
-
-        This should be done after retrieving data from the transaction.
+        This should be done after retrieving data from the transaction. If done, that data will never be available again through any transactions.
         """
         return self._put(endpoint=None, url=self.transaction_url,
                          access_token=self.access_token)
