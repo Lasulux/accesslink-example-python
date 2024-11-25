@@ -22,13 +22,14 @@ TOKEN_FILENAME = "multiple_user_tokens.yml"
 
 REDIRECT_URL = "http://localhost:{}{}".format(CALLBACK_PORT, CALLBACK_ENDPOINT)
 
-KEY_BLACKLIST = ["nights", "access_token"]
+KEY_BLACKLIST = ["nights", "access_token", "heart_rate_samples"]
 
 config = load_config(CONFIG_FILENAME)
 
 accesslink = AccessLink(client_id=config['client_id'],
                         client_secret=config['client_secret'],
-                        redirect_url=REDIRECT_URL)
+                        redirect_url=REDIRECT_URL,
+                        verbose=config['verbose'])
 app = Flask(__name__)
 
 @app.route("/")
@@ -65,17 +66,20 @@ def data():
         
     # Convert the collected data to a DataFrame
     df = pd.DataFrame(alldata)
+    # Save the DataFrame to an Excel file
+    df.to_excel("data.xlsx", index=False)
+
     user_df = add_dict_columns_to_dataframe(df["userdata"],"userdata")
     # TODO: TTK specific user id somehow used for joins?
     user_df.to_excel("users_data.xlsx", index=False)
     exercises_df = add_dict_columns_to_dataframe(df["exercises"],"exercises")
     exercises_df.to_excel("exercises_data.xlsx", index=False)
-
     sleep_df = add_dict_columns_to_dataframe(df["sleepdata"],"sleepdata")
     sleep_df.to_excel("sleep_data.xlsx", index=False)
+    continous_heart_rate_df = add_dict_columns_to_dataframe(df["coninous_heart_rate"],"coninous_heart_rate")
+    continous_heart_rate_df.to_excel("continous_heart_rate_data.xlsx", index=False)
 
-    # Save the DataFrame to an Excel file
-    df.to_excel("data.xlsx", index=False)
+
 
     return render_template("data.html", alldata = alldata)
 
@@ -130,7 +134,7 @@ def callback():
 def add_dict_columns_to_dataframe(dict_list,original_name, df=pd.DataFrame(None), delete_original=False, new_df=True):
     if new_df:
         df=pd.DataFrame(None)
-    if not isinstance(dict_list[0],Dict):
+    if not len(dict_list)==0 and not isinstance(dict_list[0],Dict):
         for user_dict_list in dict_list:
             inner_df = add_dict_columns_to_dataframe(user_dict_list, original_name, df, delete_original, new_df)
             df = pd.concat([inner_df, df], ignore_index=True)
@@ -171,6 +175,9 @@ def add_dict_columns_to_dataframe(dict_list,original_name, df=pd.DataFrame(None)
                     continue
                 if isinstance(mydict[key.split(':_')[0]], List):
                     for item in mydict[key.split(':_')[0]]:
+                        if isinstance(item.get(inner_key), List): # Perhaps we should implement some recursive function to deal with all the lists of dicts of lists of dicts of...
+                            pass Todo fix this heart rate sample stuffff
+                            inner_value_list = []
                         value_list.append(item.get(inner_key))
                 continue
             value_list.append(mydict.get(key))

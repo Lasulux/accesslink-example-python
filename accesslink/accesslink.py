@@ -12,7 +12,7 @@ ACCESSLINK_URL = "https://www.polaraccesslink.com/v3"
 class AccessLink(object):
     """Wrapper class for Polar Open AccessLink API v3"""
 
-    def __init__(self, client_id, client_secret, redirect_url=None):
+    def __init__(self, client_id, client_secret, redirect_url=None,verbose=True):
         if not client_id or not client_secret:
             raise ValueError("Client id and secret must be provided.")
 
@@ -26,8 +26,9 @@ class AccessLink(object):
         self.users = endpoints.Users(oauth=self.oauth)
         self.pull_notifications = endpoints.PullNotifications(oauth=self.oauth)
         self.training_data = endpoints.TrainingData(oauth=self.oauth)
-        self.physical_info = endpoints.PhysicalInfo(oauth=self.oauth)
+        # self.physical_info = endpoints.PhysicalInfo(oauth=self.oauth) not used
         self.daily_activity = endpoints.DailyActivity(oauth=self.oauth)
+        self.verbose = verbose
 
     @property
     def authorization_url(self):
@@ -56,19 +57,18 @@ class AccessLink(object):
         try:
             trainingdatatransaction = self.training_data.create_transaction(user_id=user_id,access_token=access_token)
             if not trainingdatatransaction:
-                print("create_transaction returned empty.")
+                if self.verbose: print("Training data create_transaction returned empty for user: ", user_id)
                 return None
             resource_urls = trainingdatatransaction.list_exercises()["exercises"]
             heartrate_samples = []
-            i = 0
+            
             for url in resource_urls:
                 exercise_heart_rate_sample = trainingdatatransaction.get_samples(url + "/samples/0")
                 heartrate_samples.append(exercise_heart_rate_sample)
                 exercise_id = url.split("/")[-1]
                 exercise_heart_rate_sample["user_id"] = user_id
                 exercise_heart_rate_sample["exercise_id"] = exercise_id
-                print("Exercise found " + str(i) + " : " + str(url)) 
-                i = i + 1
+
             return heartrate_samples
         except Exception as e:
             print("Error in get_exercise_heart_rate: " + str(e))
@@ -76,42 +76,40 @@ class AccessLink(object):
         
         
     def get_continuous_heart_rate(self, user_id,access_token,date_list):
-        # TODO: iterate trhough dates, handle exceptions (no data for that day)
-        try:
-            response = self.oauth.get(endpoint="/users/continuous-heart-rate/2024-11-06"  , access_token= access_token)
-            
-            if response:
-                # TODO: user id adding? parse results
-                return response
-            else:
-                print("No continuous-heart-rate available for the given date range")
+        heart_rate_data = []
+        for i in date_list:
+            try:
+                chr_response = self.oauth.get(endpoint="/users/continuous-heart-rate/" + str(i), access_token= access_token)
+
+                heart_rate_data.append(chr_response)
+            except Exception as e:
+                if e.response.status_code:
+                    if self.verbose: print("No continuous heart rate data found for user: ", user_id," for_date: ", i)
+                    continue
+                print("Error in get_continuous_heart_rate: " + str(e))
                 return None
-        except Exception as e:
-            print("Error in get_continuous_heart_rate: " + str(e))
-            return None
+        return heart_rate_data
 
     def get_activity(self, user_id,access_token):
         transaction = self.daily_activity.create_transaction(user_id=user_id,access_token=access_token)
         
         if not transaction:
-            print("create_transaction returned empty.")
+            if self.verbose: print("Daily activity create_transaction returned empty for user: ", user_id)
             return None,None
 
         resource_urls = transaction.list_activities()["activity-log"]
-        activity_summaries = []
-        steptimeseries = []
+        activity_summary_list = []
+        steptimeseries_list = []
 
-        i = 0
         for url in resource_urls:
             activity_summary = transaction.get_activity_summary(url)
-            activity_summaries.append(activity_summary)
+            activity_summary_list.append(activity_summary)
             step_samples = transaction.get_step_samples(url)
             step_samples["user_id"] = user_id
             step_samples["activity_id"] = url.split("/")[-1]
-            steptimeseries.append(step_samples)
-            print("Activity summary found" + str(i) + ":" + str(url)) 
-            i = i + 1
+            steptimeseries_list.append(step_samples)
+
 
         # transaction.commit()
-        return activity_summaries, steptimeseries
+        return activity_summary_list, steptimeseries_list
 
