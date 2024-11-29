@@ -61,17 +61,19 @@ class AccessLink(object):
                 return None,None
             resource_urls = trainingdatatransaction.list_exercises()["exercises"]
             heartrate_samples = []
+            exercise_summaries = []
             
             for url in resource_urls:
                 exercise_summary = trainingdatatransaction.get_exercise_summary(url)
-
+                exercise_summaries.append(exercise_summary)
+                
                 exercise_heart_rate_sample = trainingdatatransaction.get_samples(url + "/samples/0")
                 heartrate_samples.append(exercise_heart_rate_sample)
                 exercise_id = url.split("/")[-1]
                 exercise_heart_rate_sample["user_id"] = user_id
                 exercise_heart_rate_sample["exercise_id"] = exercise_id
 
-            return exercise_summary, heartrate_samples
+            return exercise_summaries , heartrate_samples
         
         except Exception as e:
             print("Error in get_exercise_heart_rate: " + str(e))

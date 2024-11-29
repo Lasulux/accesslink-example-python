@@ -73,8 +73,10 @@ def data():
     df.to_excel("data.xlsx", index=False)
     user_df = add_dict_columns_to_dataframe(df["userdata"],"userdata")
     user_df.to_excel("users_data.xlsx", index=False)
-    exercises_df = add_dict_columns_to_dataframe(df["exercise_summary"],"exercise_summary")
-    exercises_df.to_excel("exercise_summary.xlsx", index=False)
+    # this thing is empty it wrecks the common function. todo: figure out how to handle this
+    if df["exercise_summary"][0] == None:
+        exercises_df = add_dict_columns_to_dataframe(df["exercise_summary"],"exercise_summary")
+        exercises_df.to_excel("exercise_summary.xlsx", index=False)
     sleep_df = add_dict_columns_to_dataframe(df["sleepdata"],"sleepdata")
     sleep_df.to_excel("sleep_data.xlsx", index=False)
     continous_heart_rate_df = add_dict_columns_to_dataframe(df["coninous_heart_rate"],"coninous_heart_rate")
@@ -133,10 +135,10 @@ def callback():
     return redirect("/?status=ok")  
 
 def add_dict_columns_to_dataframe(dict_list,original_name, df=pd.DataFrame(None), delete_original=False, new_df=True):
-    if not(dict_list):
-        return df
+    
     if new_df:
         df=pd.DataFrame(None)
+    
     if not len(dict_list)==0 and not isinstance(dict_list[0],Dict):
         for user_dict_list in dict_list:
             inner_df = add_dict_columns_to_dataframe(user_dict_list, original_name, df, delete_original, new_df)
