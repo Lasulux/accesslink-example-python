@@ -41,8 +41,8 @@ class AccessLink(object):
         """
         return self.oauth.get_access_token(authorization_code)
 
-    def get_exercises(self, access_token, data=None):
-        return self.oauth.get(endpoint="/exercises", access_token=access_token, data=data)
+    # def get_exercises(self, access_token, data=None):
+    #     return self.oauth.get(endpoint="/exercises", access_token=access_token, data=data)
 
     def get_sleep(self, access_token):
         return self.oauth.get(endpoint="/users/sleep/", access_token=access_token)
@@ -53,26 +53,29 @@ class AccessLink(object):
     def get_userdata(self, user_id,access_token):
         return self.oauth.get(endpoint="/users/"+ str(user_id), access_token= access_token)
     
-    def get_exercise_heart_rate(self, user_id,access_token):
+    def get_exercise_data(self, user_id, access_token):
         try:
             trainingdatatransaction = self.training_data.create_transaction(user_id=user_id,access_token=access_token)
             if not trainingdatatransaction:
                 if self.verbose: print("Training data create_transaction returned empty for user: ", user_id)
-                return None
+                return None,None
             resource_urls = trainingdatatransaction.list_exercises()["exercises"]
             heartrate_samples = []
             
             for url in resource_urls:
+                exercise_summary = trainingdatatransaction.get_exercise_summary(url)
+
                 exercise_heart_rate_sample = trainingdatatransaction.get_samples(url + "/samples/0")
                 heartrate_samples.append(exercise_heart_rate_sample)
                 exercise_id = url.split("/")[-1]
                 exercise_heart_rate_sample["user_id"] = user_id
                 exercise_heart_rate_sample["exercise_id"] = exercise_id
 
-            return heartrate_samples
+            return exercise_summary, heartrate_samples
+        
         except Exception as e:
             print("Error in get_exercise_heart_rate: " + str(e))
-            return None
+            return None, None
         
         
     def get_continuous_heart_rate(self, user_id,access_token,date_list):

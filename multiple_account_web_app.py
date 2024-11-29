@@ -13,6 +13,7 @@ from utils import load_config, save_config
 from accesslink import AccessLink
 import pandas as pd
 from typing import Dict, List
+import re
 
 CALLBACK_PORT = 5000
 CALLBACK_ENDPOINT = "/oauth2_callback"
@@ -47,33 +48,33 @@ def data():
         i+=1
         if item == None:
             continue
-        exercisedata = accesslink.get_exercises(access_token=item["access_token"], data={"samples": True})
+        # exercisedata = accesslink.get_exercises(access_token=item["access_token"], data={"samples": True})
         sleepdata = accesslink.get_sleep(access_token=item["access_token"])
         rechargedata = accesslink.get_recharge(access_token=item["access_token"])
         userdata = accesslink.get_userdata(user_id=item["user_id"], access_token=item["access_token"])
         activitydata, steptimeseries = accesslink.get_activity(user_id=item["user_id"],access_token=item["access_token"])
         continous_heart_rate = accesslink.get_continuous_heart_rate(user_id=item["user_id"],access_token=item["access_token"],date_list=["2024-11-05","2024-11-06"])
-        exercise_heart_rate = accesslink.get_exercise_heart_rate(user_id=item["user_id"],access_token=item["access_token"])
-        alldata.append( {"exercises": exercisedata,
-                           "sleepdata": sleepdata,
-                           "recharge": rechargedata,
-                           "userdata": userdata,
-                           "activitydata": activitydata,
-                           "coninous_heart_rate": continous_heart_rate,
-                           "exercise_heart_rate": exercise_heart_rate,
-                           "steptimeseries": steptimeseries
-                           })
+        
+        exercise_summary, exercise_heart_rate = accesslink.get_exercise_data(user_id=item["user_id"],access_token=item["access_token"])
+        
+        alldata.append( {   "exercise_summary": exercise_summary,
+                            "sleepdata": sleepdata,
+                            "recharge": rechargedata,
+                            "userdata": userdata,
+                            "activitydata": activitydata,
+                            "coninous_heart_rate": continous_heart_rate,
+                            "exercise_heart_rate": exercise_heart_rate,
+                            "steptimeseries": steptimeseries
+                            })
         
     # Convert the collected data to a DataFrame
     df = pd.DataFrame(alldata)
     # Save the DataFrame to an Excel file
     df.to_excel("data.xlsx", index=False)
-
     user_df = add_dict_columns_to_dataframe(df["userdata"],"userdata")
-    # TODO: TTK specific user id somehow used for joins?
     user_df.to_excel("users_data.xlsx", index=False)
-    exercises_df = add_dict_columns_to_dataframe(df["exercises"],"exercises")
-    exercises_df.to_excel("exercises_data.xlsx", index=False)
+    exercises_df = add_dict_columns_to_dataframe(df["exercise_summary"],"exercise_summary")
+    exercises_df.to_excel("exercise_summary.xlsx", index=False)
     sleep_df = add_dict_columns_to_dataframe(df["sleepdata"],"sleepdata")
     sleep_df.to_excel("sleep_data.xlsx", index=False)
     continous_heart_rate_df = add_dict_columns_to_dataframe(df["coninous_heart_rate"],"coninous_heart_rate")
@@ -132,6 +133,8 @@ def callback():
     return redirect("/?status=ok")  
 
 def add_dict_columns_to_dataframe(dict_list,original_name, df=pd.DataFrame(None), delete_original=False, new_df=True):
+    if not(dict_list):
+        return df
     if new_df:
         df=pd.DataFrame(None)
     if not len(dict_list)==0 and not isinstance(dict_list[0],Dict):
@@ -165,24 +168,44 @@ def add_dict_columns_to_dataframe(dict_list,original_name, df=pd.DataFrame(None)
                 df[key] = [mydict.get(key) for _ in range(len(df))]
 
     # for key in all_keys:
-    for key in df.columns:
-        value_list = []
+    if original_name == "coninous_heart_rate":
+        polar_users=[]
+        dates=[]
+        heart_rate_samples=[]
+        sample_times=[]
         for mydict in dict_list:
-            if ':_' in key and bool(mydict[key.split(':_')[0]]):
-                inner_key = key.split(':_')[1]
-                if isinstance(mydict[key.split(':_')[0]], Dict):
-                    value_list.append(mydict.get(key.split(':_')[0]).get(inner_key))
+            #we get a dict for each user
+            number_of_rows_for_this_user = len(mydict["heart_rate_samples"])
+            polar_users += [  mydict["polar_user"]] * number_of_rows_for_this_user
+            dates += [mydict["date"]] * number_of_rows_for_this_user
+            heart_rate_samples_list_for_user = []
+            sample_time_list_for_user  = []
+            for item in mydict["heart_rate_samples"]:
+                heart_rate_samples_list_for_user.append(item["heart_rate"])
+                sample_time_list_for_user.append(item["sample_time"])
+            heart_rate_samples+= heart_rate_samples_list_for_user
+            sample_times+= sample_time_list_for_user
+        df["polar_user"] = polar_users
+        df["date"] = dates
+        df["heart_rate_samples:_heart_rate"] = heart_rate_samples
+        df["heart_rate_samples:_sample_time"] = sample_times
+    else:
+        for key in df.columns:
+            value_list = []
+            for mydict in dict_list:
+                if ':_' in key and bool(mydict[key.split(':_')[0]]):
+                    inner_key = key.split(':_')[1]
+                    if isinstance(mydict[key.split(':_')[0]], Dict):
+                        value_list.append(mydict.get(key.split(':_')[0]).get(inner_key))
+                        continue
+                    if isinstance(mydict[key.split(':_')[0]], List):
+                        for item in mydict[key.split(':_')[0]]:
+                            value_list.append(item.get(inner_key))
                     continue
-                if isinstance(mydict[key.split(':_')[0]], List):
-                    for item in mydict[key.split(':_')[0]]:
-                        if isinstance(item.get(inner_key), List): # Perhaps we should implement some recursive function to deal with all the lists of dicts of lists of dicts of...
-                            pass Todo fix this heart rate sample stuffff
-                            inner_value_list = []
-                        value_list.append(item.get(inner_key))
-                continue
-            value_list.append(mydict.get(key))
-        df[key] = value_list
-        pass
+                # if we want multiple samples here in one row:
+                value_list.append(mydict.get(key))
+            df[key] = value_list
+            pass
     
     if delete_original:
         # Delete the original column
