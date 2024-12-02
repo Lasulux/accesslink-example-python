@@ -77,6 +77,7 @@ def get_exercise_heart_rate():
     exercise_data = preprocess_exercise_data(exercise_file)
     heart_rate_data_with_date = add_date_to_heart_rate(heart_rate_data, exercise_data)
     print("Exercise heart rate data preprocessed.")
+    heart_rate_data_with_date = heart_rate_data_with_date[['user_id', 'exercise_id', 'date', 'time', 'heart_rate']]
     return heart_rate_data_with_date
 
 
