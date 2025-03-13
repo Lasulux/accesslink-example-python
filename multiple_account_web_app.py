@@ -14,6 +14,7 @@ from accesslink import AccessLink
 import pandas as pd
 from typing import Dict, List
 import re
+import isodate
 
 CALLBACK_PORT = 5000
 CALLBACK_ENDPOINT = "/oauth2_callback"
@@ -43,8 +44,11 @@ def data():
     tokens = token_db()
     alldata = []    
     i=0
+
+    print("Found ", len(tokens["tokens"]), " users. Starting to collect data.")
+
     for item in tokens["tokens"]:
-        print("checking user: ",str(i), item["user_id"])
+        print("Checking user: ",str(i),".    User ID: ", item["user_id"])
         i+=1
         if item == None:
             continue
@@ -73,10 +77,21 @@ def data():
     df.to_excel("data.xlsx", index=False)
     user_df = add_dict_columns_to_dataframe(df["userdata"],"userdata")
     user_df.to_excel("users_data.xlsx", index=False)
-    # this thing is empty it wrecks the common function. todo: figure out how to handle this
-    if df["exercise_summary"][0] == None:
-        exercises_df = add_dict_columns_to_dataframe(df["exercise_summary"],"exercise_summary")
-        exercises_df.to_excel("exercise_summary.xlsx", index=False)
+    exercises_df = add_dict_columns_to_dataframe(df["exercise_summary"],"exercise_summary")
+    exercises_df.to_excel("exercise_summary.xlsx", index=False)
+
+    if 'duration' in exercises_df.columns:
+        exercises_df['duration_hhmmss'] = exercises_df['duration'].apply(convert_duration_to_hhmmss)
+    if 'start-time' in exercises_df.columns:
+        exercises_df = extract_date_time(exercises_df, 'start-time')
+    if 'polar-user' in exercises_df.columns:
+        exercises_df['user_id'] = exercises_df['polar-user'].apply(extract_user_id)
+    exercises_df['exercise_id'] = exercises_df['id']
+    columns_to_keep = ['user_id','exercise_id', 'start_date', 'start_time', 'duration_hhmmss', 'calories','distance','heart-rate:_average','heart-rate:_maximum','sport','fat-percentage','carbohydrate-percentage','protein-percentage','training-load-pro:_cardio-load','training-load-pro:_cardio-load-interpretation','device-id','upload-time']
+    exercises_df = exercises_df.filter(items=columns_to_keep)
+
+
+    exercises_df.to_excel("exercise_summary_filtered.xlsx", index=False)
     sleep_df = add_dict_columns_to_dataframe(df["sleepdata"],"sleepdata")
     sleep_df.to_excel("sleep_data.xlsx", index=False)
     continous_heart_rate_df = add_dict_columns_to_dataframe(df["coninous_heart_rate"],"coninous_heart_rate")
@@ -141,8 +156,9 @@ def add_dict_columns_to_dataframe(dict_list,original_name, df=pd.DataFrame(None)
     
     if not len(dict_list)==0 and not isinstance(dict_list[0],Dict):
         for user_dict_list in dict_list:
-            inner_df = add_dict_columns_to_dataframe(user_dict_list, original_name, df, delete_original, new_df)
-            df = pd.concat([inner_df, df], ignore_index=True)
+            if user_dict_list:
+                inner_df = add_dict_columns_to_dataframe(user_dict_list, original_name, df, delete_original, new_df)
+                df = pd.concat([inner_df, df], ignore_index=True)
         return df
     
     # Get unique keys from all dictionaries
@@ -227,6 +243,38 @@ def remove_oldtokens(array , newuserid):
             res.append({"user_id": useritem,
                       "access_token":usertoken})
     return res
+
+def convert_duration_to_hhmmss(duration):
+    try:
+        # Parse the ISO 8601 duration
+        parsed_duration = isodate.parse_duration(duration)
+        # Convert to total seconds
+        total_seconds = int(parsed_duration.total_seconds())
+        # Format as HH:MM:SS
+        hours, remainder = divmod(total_seconds, 3600)
+        minutes, seconds = divmod(remainder, 60)
+        return f"{hours:02}:{minutes:02}:{seconds:02}"
+    except Exception as e:
+        print(f"Error converting duration: {e}")
+        return None
+
+def extract_user_id(url):
+    match = re.search(r'/users/(\d+)$', url)
+    if match:
+        return match.group(1)
+    else:
+        return None
+
+def extract_date_time(df, column_name):
+    # Convert the column to datetime
+    df[column_name] = pd.to_datetime(df[column_name])
+    # Extract date and time
+    df['start_date'] = df[column_name].dt.date
+    df['start_time'] = df[column_name].dt.time
+    # Convert date and time to string format
+    df['start_date'] = df['start_date'].astype(str)
+    df['start_time'] = df['start_time'].astype(str)
+    return df
 
 def token_db():
     usertokens = None
