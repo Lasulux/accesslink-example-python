@@ -97,6 +97,8 @@ def data():
     continous_heart_rate_df = add_dict_columns_to_dataframe(df["coninous_heart_rate"],"coninous_heart_rate")
     continous_heart_rate_df.to_excel("continous_heart_rate_data.xlsx", index=False)
 
+    steptimeseries = add_dict_columns_to_dataframe(df["steptimeseries"],"steptimeseries")
+    steptimeseries.to_excel("steptimeseries.xlsx", index=False)
 
 
     return render_template("data.html", alldata = alldata)
@@ -207,6 +209,37 @@ def add_dict_columns_to_dataframe(dict_list,original_name, df=pd.DataFrame(None)
         df["date"] = dates
         df["heart_rate_samples:_heart_rate"] = heart_rate_samples
         df["heart_rate_samples:_sample_time"] = sample_times
+    elif original_name == "steptimeseries":
+        interval=[]
+        date=[]
+        steptimesamples =[]
+        sample_times =[]
+        user_id =[]
+        activity_id =[]
+        for mydict in dict_list:
+            #we get a dict for each user
+            number_of_rows_for_this_user = len(mydict["samples"])
+            interval += [mydict["interval"]] * number_of_rows_for_this_user
+            date += [mydict["date"]] * number_of_rows_for_this_user
+            user_id += [mydict["user_id"]] * number_of_rows_for_this_user
+            activity_id += [mydict["activity_id"]] * number_of_rows_for_this_user
+            samples_steps =[]
+            samples_time =[]
+            for item in mydict["samples"]:
+                if item and "steps" in item.keys() and "time" in item.keys():
+                    samples_steps.append(item["steps"])
+                    samples_time.append(item["time"])
+                else:
+                    samples_steps.append(0)
+                    samples_time.append(0)
+            steptimesamples+= samples_steps
+            sample_times+= samples_time
+        df["interval"] = interval
+        df["date"] = date
+        df["user_id"] = user_id
+        df["activity_id"] = activity_id
+        df["samples:_steps"] = steptimesamples
+        df["samples:_time"] = sample_times
     else:
         for key in df.columns:
             value_list = []
