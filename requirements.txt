@@ -1,4 +1,8 @@
-flask
-pyyaml
-requests
-openpyxl
+flask == 3.0.3
+pyyaml == 6.0.2
+requests == 2.32.3
+openpyxl == 3.1.5
+tqdm == 4.67.1
+isodate == 0.7.2
+pandas == 2.0.3
+numpy == 1.24.4

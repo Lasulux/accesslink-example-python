@@ -15,18 +15,21 @@ import pandas as pd
 from typing import Dict, List
 import re
 import isodate
+import tqdm
 
 CALLBACK_PORT = 5000
 CALLBACK_ENDPOINT = "/oauth2_callback"
 
 CONFIG_FILENAME = "config_custom.yml"
 TOKEN_FILENAME = "multiple_user_tokens.yml"
+SETTINGS_FILENAME = "settings.yml"
 
 REDIRECT_URL = "http://localhost:{}{}".format(CALLBACK_PORT, CALLBACK_ENDPOINT)
 
 KEY_BLACKLIST = ["nights", "access_token", "heart_rate_samples"]
 
 config = load_config(CONFIG_FILENAME)
+settings = load_config(SETTINGS_FILENAME)
 
 accesslink = AccessLink(client_id=config['client_id'],
                         client_secret=config['client_secret'],
@@ -44,11 +47,17 @@ def data():
     tokens = token_db()
     alldata = []    
     i=0
+    tqdm.tqdm.write(f"Found {len(tokens['tokens'])} users. Starting to collect data.")
 
-    print("Found ", len(tokens["tokens"]), " users. Starting to collect data.")
+    date_list = extract_dates(start = settings["start_date"], end = settings["end_date"])
+    tqdm.tqdm.write(f"Date list: {date_list}")
+    if len(date_list) == 0:
+        tqdm.tqdm.write("No dates to fetch continuous heart rate data for!")
+    elif len(date_list) > 31:
+        tqdm.tqdm.write("Too many dates to fetch continuous heart rate data for. Might get blocked by API regulations... (warning at 31 days)")
 
-    for item in tokens["tokens"]:
-        print("Checking user: ",str(i),".    User ID: ", item["user_id"])
+    for item in tqdm.tqdm(tokens["tokens"], desc="Processing users"):
+        tqdm.tqdm.write(f"Checking user: {str(i+1)}. User ID: {item['user_id']}")
         i+=1
         if item == None:
             continue
@@ -57,8 +66,10 @@ def data():
         rechargedata = accesslink.get_recharge(access_token=item["access_token"])
         userdata = accesslink.get_userdata(user_id=item["user_id"], access_token=item["access_token"])
         activitydata, steptimeseries = accesslink.get_activity(user_id=item["user_id"],access_token=item["access_token"])
-        continous_heart_rate = accesslink.get_continuous_heart_rate(user_id=item["user_id"],access_token=item["access_token"],date_list=["2024-11-05","2024-11-06"])
-        
+        if len(date_list) > 0:
+            continous_heart_rate = accesslink.get_continuous_heart_rate(user_id=item["user_id"],access_token=item["access_token"],date_list=date_list)
+        else:
+            continous_heart_rate = []
         exercise_summary, exercise_heart_rate = accesslink.get_exercise_data(user_id=item["user_id"],access_token=item["access_token"])
         
         alldata.append( {   "exercise_summary": exercise_summary,
@@ -70,13 +81,24 @@ def data():
                             "exercise_heart_rate": exercise_heart_rate,
                             "steptimeseries": steptimeseries
                             })
-        
+        if alldata["activitydata"] == None or len(alldata["activitydata"]) == 0 and i >= 5:
+            tqdm.tqdm.write("No activity data found for multiple users... Maybe data collection was called too frequently? One users data can be only downloaded every 10 minutes. If still no data is found, check the user's data in the Polar Flow web app. Its also possible that the daily limit of API calls has been reached.")
+    
+    tqdm.tqdm.write("Compiling data to Excel files...")
     # Convert the collected data to a DataFrame
     df = pd.DataFrame(alldata)
     # Save the DataFrame to an Excel file
     df.to_excel("data.xlsx", index=False)
     user_df = add_dict_columns_to_dataframe(df["userdata"],"userdata")
     user_df.to_excel("users_data.xlsx", index=False)
+
+    activity_df = add_dict_columns_to_dataframe(df["activitydata"],"activitydata")
+    
+    if "created" in activity_df.columns:
+        activity_df = extract_date_time(activity_df, 'created')
+
+    activity_df.to_excel("activity_data.xlsx", index=False)
+
     exercises_df = add_dict_columns_to_dataframe(df["exercise_summary"],"exercise_summary")
     exercises_df.to_excel("exercise_summary.xlsx", index=False)
 
@@ -94,14 +116,16 @@ def data():
     exercises_df.to_excel("exercise_summary_filtered.xlsx", index=False)
     sleep_df = add_dict_columns_to_dataframe(df["sleepdata"],"sleepdata")
     sleep_df.to_excel("sleep_data.xlsx", index=False)
-    continous_heart_rate_df = add_dict_columns_to_dataframe(df["coninous_heart_rate"],"coninous_heart_rate")
-    continous_heart_rate_df.to_excel("continous_heart_rate_data.xlsx", index=False)
+    if len(date_list) > 0:
+        continous_heart_rate_df = add_dict_columns_to_dataframe(df["coninous_heart_rate"],"coninous_heart_rate")
+        continous_heart_rate_df.to_excel("continous_heart_rate_data.xlsx", index=False)
 
     steptimeseries = add_dict_columns_to_dataframe(df["steptimeseries"],"steptimeseries")
     steptimeseries.to_excel("steptimeseries.xlsx", index=False)
 
-
-    return render_template("data.html", alldata = alldata)
+    # if we are not running the app just exit
+    return
+    # return render_template("data.html", alldata = alldata)
 
 @app.route(CALLBACK_ENDPOINT)
 def callback():
@@ -309,6 +333,15 @@ def extract_date_time(df, column_name):
     df['start_time'] = df['start_time'].astype(str)
     return df
 
+def extract_dates(start, end):
+    date_list = []
+    start_date = pd.to_datetime(start)
+    end_date = pd.to_datetime(end)
+    while start_date <= end_date:
+        date_list.append(start_date.strftime('%Y-%m-%d'))
+        start_date += pd.DateOffset(days=1)
+    return date_list
+
 def token_db():
     usertokens = None
     if exists(TOKEN_FILENAME):
@@ -318,8 +351,11 @@ def token_db():
     return usertokens
 
 def main():
-    print("Navigate to http://localhost:{port}/ for authorization.\n".format(port=CALLBACK_PORT))
-    app.run(host='localhost', port=CALLBACK_PORT)
+    # print("Navigate to http://localhost:{port}/ for authorization.\n".format(port=CALLBACK_PORT))
+    # app.run(host='localhost', port=CALLBACK_PORT)
+    # do data collection
+    data()
+    print("Data collection done.")
 
 if __name__ == "__main__":
     main()

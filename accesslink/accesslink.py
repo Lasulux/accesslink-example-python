@@ -3,6 +3,8 @@
 from . import endpoints
 from .oauth2 import OAuth2Client
 import pandas as pd
+import tqdm
+
 
 AUTHORIZATION_URL = "https://flow.polar.com/oauth2/authorization"
 ACCESS_TOKEN_URL = "https://polarremote.com/v2/oauth2/token"
@@ -57,7 +59,7 @@ class AccessLink(object):
         try:
             trainingdatatransaction = self.training_data.create_transaction(user_id=user_id,access_token=access_token)
             if not trainingdatatransaction:
-                if self.verbose: print("Training data create_transaction returned empty for user: ", user_id)
+                if self.verbose: tqdm.tqdm.write(f"Training data create_transaction returned empty for user: {user_id}")
                 return None,None
             resource_urls = trainingdatatransaction.list_exercises()["exercises"]
             heartrate_samples = []
@@ -76,7 +78,7 @@ class AccessLink(object):
             return exercise_summaries , heartrate_samples
         
         except Exception as e:
-            print("Error in get_exercise_heart_rate: " + str(e))
+            tqdm.tqdm.write(f"Error in get_exercise_heart_rate: {str(e)}")
             return None, None
         
         
@@ -89,9 +91,9 @@ class AccessLink(object):
                 heart_rate_data.append(chr_response)
             except Exception as e:
                 if e.response.status_code:
-                    if self.verbose: print("No continuous heart rate data found for user: ", user_id," for_date: ", i)
+                    if self.verbose: tqdm.tqdm.write(f"No continuous heart rate data found for user: {user_id} for date: {i}")
                     continue
-                print("Error in get_continuous_heart_rate: " + str(e))
+                tqdm.tqdm.write(f"Error in get_continuous_heart_rate: {str(e)}")
                 return None
         return heart_rate_data
 
@@ -99,7 +101,7 @@ class AccessLink(object):
         transaction = self.daily_activity.create_transaction(user_id=user_id,access_token=access_token)
         
         if not transaction:
-            if self.verbose: print("Daily activity create_transaction returned empty for user: ", user_id)
+            if self.verbose: tqdm.tqdm.write(f"Daily activity create_transaction returned empty for user: {user_id}")
             return None,None
 
         resource_urls = transaction.list_activities()["activity-log"]
