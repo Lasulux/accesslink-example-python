@@ -17,6 +17,8 @@ import re
 import isodate
 import tqdm
 
+from match_id import load_data, clean_data, merge_data
+
 CALLBACK_PORT = 5000
 CALLBACK_ENDPOINT = "/oauth2_callback"
 
@@ -81,46 +83,93 @@ def data():
                             "exercise_heart_rate": exercise_heart_rate,
                             "steptimeseries": steptimeseries
                             })
-        if alldata["activitydata"] == None or len(alldata["activitydata"]) == 0 and i >= 5:
-            tqdm.tqdm.write("No activity data found for multiple users... Maybe data collection was called too frequently? One users data can be only downloaded every 10 minutes. If still no data is found, check the user's data in the Polar Flow web app. Its also possible that the daily limit of API calls has been reached.")
+        
+
+
+        if all(data["activitydata"] is None or len(data["activitydata"]) == 0 for data in alldata[:i]) and i >= 5:
+            tqdm.tqdm.write("No activity data found for multiple users... Maybe data collection was called too frequently? One user's data can be only downloaded every 10 minutes. If still no data is found, check the user's data in the Polar Flow web app. It's also possible that the daily limit of API calls has been reached.")
     
+
+
+
+
     tqdm.tqdm.write("Compiling data to Excel files...")
     # Convert the collected data to a DataFrame
     df = pd.DataFrame(alldata)
     # Save the DataFrame to an Excel file
     df.to_excel("data.xlsx", index=False)
     user_df = add_dict_columns_to_dataframe(df["userdata"],"userdata")
+    if "polar-user-id" in user_df.columns:
+        user_df.rename(columns={"polar-user-id": "polar_user_id"}, inplace=True)
     user_df.to_excel("users_data.xlsx", index=False)
 
+    # Load and clean data
+    account_df, account_birthdate, api_df = load_data(api_df=user_df)
+    account_df, account_birthdate, api_df = clean_data(account_df, account_birthdate, api_df)
+
+    # Merge data
+    merged_df, unmatched_entries = merge_data(account_df, account_birthdate, api_df)
+
+    # save to excel
+    merged_df.to_excel("merged_data.xlsx", index=False)
+    unmatched_entries.to_excel("unmatched_entries.xlsx", index=False)
+
+    print("\n🔄 Merged DataFrame:")
+    print(merged_df.head())
+
+    print("\n🔍 Unmatched Entries:")
+    print(unmatched_entries)
+
     activity_df = add_dict_columns_to_dataframe(df["activitydata"],"activitydata")
-    
     if "created" in activity_df.columns:
         activity_df = extract_date_time(activity_df, 'created')
-
     activity_df.to_excel("activity_data.xlsx", index=False)
 
     exercises_df = add_dict_columns_to_dataframe(df["exercise_summary"],"exercise_summary")
-    exercises_df.to_excel("exercise_summary.xlsx", index=False)
-
+    # exercises_df.to_excel("exercise_summary.xlsx", index=False)
     if 'duration' in exercises_df.columns:
         exercises_df['duration_hhmmss'] = exercises_df['duration'].apply(convert_duration_to_hhmmss)
     if 'start-time' in exercises_df.columns:
         exercises_df = extract_date_time(exercises_df, 'start-time')
     if 'polar-user' in exercises_df.columns:
-        exercises_df['user_id'] = exercises_df['polar-user'].apply(extract_user_id)
-    exercises_df['exercise_id'] = exercises_df['id']
+        exercises_df['polar_user_id'] = exercises_df['polar-user'].apply(extract_user_id)
+    if 'id' in exercises_df.columns:
+        exercises_df['exercise_id'] = exercises_df['id']
     columns_to_keep = ['user_id','exercise_id', 'start_date', 'start_time', 'duration_hhmmss', 'calories','distance','heart-rate:_average','heart-rate:_maximum','sport','fat-percentage','carbohydrate-percentage','protein-percentage','training-load-pro:_cardio-load','training-load-pro:_cardio-load-interpretation','device-id','upload-time']
     exercises_df = exercises_df.filter(items=columns_to_keep)
-
-
     exercises_df.to_excel("exercise_summary_filtered.xlsx", index=False)
+
     sleep_df = add_dict_columns_to_dataframe(df["sleepdata"],"sleepdata")
     sleep_df.to_excel("sleep_data.xlsx", index=False)
+    
     if len(date_list) > 0:
         continous_heart_rate_df = add_dict_columns_to_dataframe(df["coninous_heart_rate"],"coninous_heart_rate")
+        if "polar_user" in continous_heart_rate_df.columns:
+            continous_heart_rate_df.rename(columns={"polar_user": "polar_user_id"}, inplace=True)
+            continous_heart_rate_df["polar_user_id"] = continous_heart_rate_df["polar_user_id"].apply(extract_user_id)
+        if "heart_rate_samples:_heart_rate" in continous_heart_rate_df.columns:
+            continous_heart_rate_df.rename(columns={"heart_rate_samples:_heart_rate": "heart_rate"}, inplace=True)
+        if "heart_rate_samples:_sample_time" in continous_heart_rate_df.columns:
+            continous_heart_rate_df.rename(columns={"heart_rate_samples:_sample_time": "sample_time"}, inplace=True)
         continous_heart_rate_df.to_excel("continous_heart_rate_data.xlsx", index=False)
 
     steptimeseries = add_dict_columns_to_dataframe(df["steptimeseries"],"steptimeseries")
+    if "samples:_steps" in steptimeseries.columns:
+        steptimeseries.rename(columns={"samples:_steps": "steps"}, inplace=True)
+    if "samples:_time" in steptimeseries.columns:
+        steptimeseries.rename(columns={"samples:_time": "time_start"}, inplace=True)
+        steptimeseries["time_start"] = pd.to_datetime(steptimeseries["time_start"])
+        steptimeseries["time_end"] = steptimeseries["time_start"]
+        for i in range(len(steptimeseries)):
+
+            steptimeseries.loc[i, "time_end"] += pd.Timedelta(minutes=steptimeseries.loc[i, "interval"])
+
+
+            # steptimeseries["time_end"][i] += pd.Timedelta(minutes=steptimeseries["interval"][i])
+    if "user_id" in steptimeseries.columns:
+        steptimeseries.rename(columns={"user_id": "polar_user_id"}, inplace=True)
+    #reorder columns
+    steptimeseries = steptimeseries[['polar_user_id', 'date', 'activity_id', 'interval', 'time_start', 'time_end', 'steps']]
     steptimeseries.to_excel("steptimeseries.xlsx", index=False)
 
     # if we are not running the app just exit
